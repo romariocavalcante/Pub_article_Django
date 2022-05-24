@@ -1,0 +1,74 @@
+{% extends "home.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'app/css/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block nav_items %}
+<div class="nav-item">
+    <a class="nav-link" aria-current="page" href="/">Grupos de Pesquisa</a>
+</div>
+
+<div class="nav-item">
+    <a class="nav-link" href="/profile">Cadastro Usuário</a>
+</div>
+<div class="nav-item">
+    <a class="nav-link" href="/article">Cadastro Artigos</a>
+</div>
+<div class="nav-item active">
+    <a class="nav-link" href="/user">Lista de Usuários</a>
+</div>
+{% endblock %}
+
+
+{% block mainBody %}
+
+{% if user %}
+
+<div class="container mt-5 p-5">
+    <div class="container p-5 shadow rounded">
+
+    {% block useritems %}
+
+    <div class="d-flex justify-content-between align-items-center pe-5 mb-3
+        border-bottom">
+        <h5 class="h5 text-primary mb-3">Lista de Usuários cadastrados</h5>
+        <a href="/profile" class="btn btn-outline-success border-0"><i class="fa
+                fa-plus" aria-hidden="true"></i> </a>
+    </div>
+
+    <ul class="list-group">
+        {% for l in user %}
+
+
+        <li class="list-group-item d-flex justify-content-between
+            align-items-center">
+            {{l.name}}
+            <a href="{% url 'deleteUser' l.id %}"><i class="fa fa-trash"
+                    aria-hidden="true"></i></a>
+        </li>
+
+
+        {% endfor %}
+    </ul>
+
+    {% endblock %}
+
+</div>
+</div>
+
+{% else %}
+<div class="container pt-5">
+    <div class="row bg-body rounded shadow pb-5 pt-3 px-4 my-5">
+        <small class="text-muted">Não há registro de usuário!</small>
+    </div>
+    <a href="/profile" class="btn btn-primary">Cadastrar</a>
+</div>
+
+{% endif %}
+
+
+{% endblock %}

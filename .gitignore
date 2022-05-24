@@ -1,0 +1,5 @@
+iniciacao_cientifica/__pycache__
+iniciacao_cientifica/migrations/
+venv
+db.sqlite3
+lista de comandos.txt

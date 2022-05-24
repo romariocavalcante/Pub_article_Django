@@ -1,0 +1,77 @@
+{% if user %}
+
+			{% for u in users %}
+
+				{% if article %}
+
+					<div class="my-3 p-3 bg-body rounded shadow-sm">
+						{{u.name}}
+					</div>
+
+					{% if user.name == user.name %}
+
+
+						<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded
+							shadow-sm">
+
+							<div class="lh-1">
+								<h1 class="h6 mb-0 text-white lh-1">{{a.user.name}}</h1>
+								<small>desde {{a.user.date_create}}</small>
+							</div>
+
+						</div>
+
+						<div class="my-3 p-3 bg-body rounded shadow-sm">
+
+							<h6 class="pb-2 mb-0">Publicações </h6>
+
+							<div class="d-flex text-muted pt-3">
+
+								<div class="row w-100">
+									<!--##################################################################################-->
+
+									<!-- {% for a in article%} -->
+
+									<hr>
+
+									<div class="col mb-3">
+										<strong>{{a.title}}</strong><br>
+										<small>Publicado em {{a.pub_date}}</small>
+									</div>
+									<p style="text-align: justify;">{{a.abstract}}</p>
+
+									<!-- {% endfor %} -->
+
+
+
+									
+									<!--##################################################################################-->
+								</div>
+
+							</div>
+
+						</div>			
+
+						
+
+					{% endif %}
+
+				{% else %}
+
+					<div class="row bg-body rounded shadow pb-5 pt-3 px-4 my-5">
+						<small class="text-muted">Não há registro de artigos! Porém há usuários!</small>
+						<small class="text-muted"><a href="user">Lista de usuários</a></small>
+					</div>
+
+				{% endif %}
+
+			{% endfor %}
+
+
+		{% else %}
+
+			<div class="row bg-body rounded shadow pb-5 pt-3 px-4 my-5">
+				<small class="text-muted">Não há registro de usuário!</small>
+			</div>
+
+		{% endif %}
