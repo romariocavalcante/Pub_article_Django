@@ -2,7 +2,6 @@ from django import forms
 from .models import *
 
 class ArticleForm(forms.ModelForm):
-    pub_date = forms.DateField()
     class Meta:
         model = Article
         fields = '__all__'
